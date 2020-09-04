@@ -258,3 +258,22 @@ if (HAVE_OFF64_T)
         set_target_properties(minigzip64 PROPERTIES COMPILE_FLAGS "-D_FILE_OFFSET_BITS=64")
     endif ()
 endif ()
+
+
+
+
+install(TARGETS zlibstatic zlib
+        EXPORT zlib
+        RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+        LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+        ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+        PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/zlib
+        )
+
+# install the export info
+install(
+        EXPORT zlib
+        DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/zlib
+        NAMESPACE zlib::
+)
+
