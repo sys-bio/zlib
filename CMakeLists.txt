@@ -273,7 +273,8 @@ install(TARGETS zlibstatic zlib
 # install the export info
 install(
         EXPORT zlib
-        DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/zlib
+        DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake
         NAMESPACE zlib::
+        FILE zlib-config.cmake
 )
 
